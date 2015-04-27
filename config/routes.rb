@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-
+  get 'welcome/show' => 'welcome#show'
+  get 'welcome/new' => 'welcome#new', as: :new_place
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  resources :welcome, only: [:index, :show]
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
