@@ -5,6 +5,7 @@
   <p>
     <%= label_tag :search %>
     <%= text_field_tag :search, params[:search], :placeholder => "e.g. Tokyo museums, Seattle cafes, Dublin pubs, etc.", class: 'form-control' %>
+    
     <p><%= submit_tag "Search", class: "btn btn-warning btn-lg" %></p>
   </p>
 <% end %>
