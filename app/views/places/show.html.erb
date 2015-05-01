@@ -1,0 +1,28 @@
+<%= render 'layouts/navbar' %>
+<div class="container results">
+
+	<section class="title">
+		<h3 id="locationName"><%= @details['result']['name'] %></h3>
+		<p><%= @details['result']['formatted_address'] %></p>
+	</section>
+
+	<section class="map">
+		<iframe 
+			width="800",
+			height="400",
+			src="https://www.google.com/maps/embed/v1/place?key=
+			<%= API_KEY %>&q=<%= @details['result']['name'] %>" >
+	  </iframe>
+	</section>
+
+	<section class="details">
+		<p>Type:
+			<% @details['result']['types'].each do |t| %>
+				<%= t %>
+			<% end %>
+		</p>
+		<p>Rating: <%= @details['result']['rating'] %></p>
+		<p>Price Level: <%= @details['result']['price_level'] %></p>
+	</section>
+
+</div>

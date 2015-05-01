@@ -1,0 +1,29 @@
+<%= render 'layouts/navbar' %>
+
+<div class="container">
+	<section>
+    <%= form_tag places_path, :method => 'get', class: 'form-group' do %>
+		  <p>
+		    <%= search_field_tag :search, params[:search], :placeholder => "Search and discover...", class: 'form-control' %>
+		    <%= submit_tag "Search", class: "form-submit btn btn-default" %>
+		  </p>
+		<% end %>
+  </section>
+
+  <section>
+    <div class="list-group results">
+    	<% if @results %>
+      <h3><a class="list-group-item active">Search Results</a></h3>
+        <% @results['results'].each do |r| %>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading"><%= link_to r['name'], place_path(r['place_id']) %></h4>
+            <p class="list-group-item-text">
+              <%= r['formatted_address'] %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+
+</div>
